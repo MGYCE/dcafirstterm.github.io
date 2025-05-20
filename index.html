@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roll Number Search</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Result Search</h2>
+    <label for="rollInput">Enter Roll Number:</label>
+    <input type="text" id="rollInput" placeholder="e.g., 1234">
+    <button onclick="searchResult()">Search</button>
+
+    <div id="result" style="margin-top: 20px;"></div>
+
+    <script>
+        // Sample student data (in a real app, this would come from a server or database)
+        const studentData = {
+            "1234": { name: "John Doe", marks: 85, grade: "A" },
+            "5678": { name: "Jane Smith", marks: 92, grade: "A+" },
+            "4321": { name: "Sam Lee", marks: 76, grade: "B+" }
+        };
+
+        function searchResult() {
+            const roll = document.getElementById("rollInput").value.trim();
+            const resultDiv = document.getElementById("result");
+
+            if (studentData[roll]) {
+                const student = studentData[roll];
+                resultDiv.innerHTML = `
+                    <h3>Result for Roll Number: ${roll}</h3>
+                    <p><strong>Name:</strong> ${student.name}</p>
+                    <p><strong>Marks:</strong> ${student.marks}</p>
+                    <p><strong>Grade:</strong> ${student.grade}</p>
+                `;
+            } else {
+                resultDiv.innerHTML = `<p style="color: red;">No result found for roll number ${roll}.</p>`;
+            }
+        }
+    </script>
+
+</body>
+</html>
