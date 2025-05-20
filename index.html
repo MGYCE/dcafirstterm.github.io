@@ -15,7 +15,7 @@
 </head>
 <body>
 
-    <h2>Student Result Search</h2>
+    <h2>First Term Examination 2025</h2>
     <label for="rollInput">Enter Roll Number:</label>
     <input type="text" id="rollInput" placeholder="e.g., 1234">
     <button onclick="searchResult()">Search</button>
@@ -25,9 +25,7 @@
     <script>
         // Sample student data (in a real app, this would come from a server or database)
         const studentData = {
-            "1234": { name: "John Doe", marks: 85, grade: "A" },
-            "5678": { name: "Jane Smith", marks: 92, grade: "A+" },
-            "4321": { name: "Sam Lee", marks: 76, grade: "B+" }
+            "DCA202501": { name: "Jayanta Shib", marks: 48, result: "Pass" },
         };
 
         function searchResult() {
@@ -40,7 +38,7 @@
                     <h3>Result for Roll Number: ${roll}</h3>
                     <p><strong>Name:</strong> ${student.name}</p>
                     <p><strong>Marks:</strong> ${student.marks}</p>
-                    <p><strong>Grade:</strong> ${student.grade}</p>
+                    <p><strong>Result:</strong> ${student.result}</p>
                 `;
             } else {
                 resultDiv.innerHTML = `<p style="color: red;">No result found for roll number ${roll}.</p>`;
